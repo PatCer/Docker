@@ -1,6 +1,7 @@
 # Docker
 ## Vorteile:
-  - Im Gegensatz zu VMs, die ein Betriebsystem, unsere resource und alles drum und dran gleichzeitig runnen muss, kann ein docker nur die resource selber runnen, dh. es ist
+  - Im Gegensatz zu VMs, die ein Betriebsystem, unsere resource und alles drum und dran 
+  gleichzeitig runnen muss, kann ein docker nur die resource selber runnen, dh. es ist
   - schneller beim start,
   - viel effizienter
   - und verbrauchen viel weniger speicherplatz.
@@ -10,13 +11,16 @@
   - wenig personal, die sich damit auskennt
 
 ## Dockerfiles:
-  Die bauanleitung für das Bild dh. das hat alle commands schon geschrieben die man braucht um das bild zu erstellen und man muss nur noch den file selber ausführen und das Bild ird erstellt.
+  Die bauanleitung für das Bild dh. das hat alle commands schon geschrieben die 
+  man braucht um das bild zu erstellen und man muss nur noch den file selber ausführen 
+  und das Bild ird erstellt.
 
 ## Basis-Image:
   Ein standartimage, der verändert wird um sein eigenes docker image zu bauen.
   
 ## Docker-Registries:
-  In docker Registrie haltet alle versionen von einer docker image, sodass der anwender auf alle Versionen zugriff hat.
+  In docker Registrie haltet alle versionen von einer docker image, sodass der anwender 
+  auf alle Versionen zugriff hat.
 
 ## Docker image Tags:
   Tags anhand man images einordnen kann dh. es funktioniert wie der name des Images.
@@ -70,3 +74,46 @@ Um Docker images am sichersten zu halten, sollten:
 
 > [!NOTE]
 Here Are some useful [commands](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
+
+
+# First Steps
+
+## Dockerfile erstellen
+1. File mit dem namen Dockerfile erstellen
+2. Spezifiziere, welches os du benutzt mit FROM 
+    -> Syntax : ```FROM <name>:<version>```
+    -> bsp.   : ```FROM nginx:1.11-alpine```
+3. Führe befehle aus mit RUN
+    -> Syntax : ```RUN <befehl>```
+    -> bsp.   : ```RUN echo 'Hallo aus der Image'```
+4. resourcen einbinden mit COPY
+    -> Syntax : ```COPY <pfad der resource> <pfad an dem die resource ankommen soll>```
+    -> bsp.   : ```COPY TestWebSite/index.html /usr/share/nginx/html```
+5. port freigeben mit EXPOSE
+    -> Syntax : ```EXPOSE <port nummer>```
+    -> bsp.   : ```EXPOSE 80``` 
+6. spezifizier den command der ausgeführt werden soll mit CMD (muss immer am ende einer Dockerfile sein)
+  -> Syntax : ```CMD [<executable> <param>]```
+  -> bsp.   : ```CMD ["nginx", "-g", "daemon off;"]```
+
+## Dockerfile ausführen
+Im cmd kannst du mit dem Command ```docker images``` alle docker images von dir ansehen.
+
+Navigiere im cmd an den file, in dem sich dein Dockerfile befindet und führe das befehl 
+syntax: ```docker build <pfad> <tag>```
+bsp.  : ```docker build . -t firsttestimage```
+um den image zu bauen.
+
+Wenn du jetzt das befehl ```docker images``` ausführst sollte dein docker image da stehen.
+
+Führe anschließlich dieses befehl:
+syntax:```docker run . -d -p <angegebener port:port> <tag>``` 
+bsp.  : ```docker run . -d -p 80:8081``` 
+aus um dein docker zu runnen.
+
+Wenn du wie ich in diesem fall eine Website erstellt hast, dann kannst du in deinem 
+browser einfach ```localhost:<dein port>``` eingeben und dann sollte deine webseite erscheinen.
+
+## Dockerfile in Azure Registry pushen
+[Here](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) is a tutorial to create an Azure Registry and then push an image to it.
+

@@ -115,8 +115,14 @@ Wenn du wie ich in diesem fall eine Website erstellt hast, dann kannst du in dei
 browser einfach ```localhost:<dein port>``` eingeben und dann sollte deine webseite erscheinen.
 
 ## Dockerfile in Azure Registry pushen
-[Hier](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) ist ein tutorial um den registry zu erstellen und ein image zu pushen.
-Wenn bei der anmeldung ein username angeforder wird, dann geh auf dein registry/AccessKeys
-dan check das kästchen mit "Admin user" und dann steht dein username aund passwort da.
+[Hier](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) ist ein Tutorial um die Registry zu erstellen und ein Image zu pushen.
+Wenn bei der Anmeldung ein Username angefordert wird, dann geh auf deine Registry/AccessKeys
+dann check das Kästchen mit "Admin user" und dann steht dein username aund passwort da.
 Bei der eingabe vom passwort wird nix angezeigt, aber die eingaben gelten trotzdem.
 
+## Dockerfile mit html und javascript
+1. Html und Javascript erstellen und miteinander verbinden
+2. Ein Dockerfile erstellen und alle files reinkopieren mit das COPY befehl 
+(WICHTIG!! Die files in den destination path so anordenen, das die files aufeinander
+ zugreifen können, d.h. wenn in der html datei der script "ordner/script.js" so angegeben
+  wird, dann muss man die script datei in einen ordner kopieren, der gleich bennant ist.)

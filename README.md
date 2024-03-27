@@ -115,5 +115,8 @@ Wenn du wie ich in diesem fall eine Website erstellt hast, dann kannst du in dei
 browser einfach ```localhost:<dein port>``` eingeben und dann sollte deine webseite erscheinen.
 
 ## Dockerfile in Azure Registry pushen
-[Here](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) is a tutorial to create an Azure Registry and then push an image to it.
+[Hier](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) ist ein tutorial um den registry zu erstellen und ein image zu pushen.
+Wenn bei der anmeldung ein username angeforder wird, dann geh auf dein registry/AccessKeys
+dan check das kästchen mit "Admin user" und dann steht dein username aund passwort da.
+Bei der eingabe vom passwort wird nix angezeigt, aber die eingaben gelten trotzdem.
 
